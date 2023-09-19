@@ -2,8 +2,7 @@ import React from 'react'
 
 // 15 - In the form field we needs many props, which includes lableName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe
 // 16 - htmlFor is a way to create a link between a label and an input element, enhancing the usability and accessibility of your web forms.
-const FormField = ( {lableName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe}) => {
-  return (
+const FormField = ( {lableName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe}) => (
     <div>
       <div className="flex items-center gap-2 mb-2">
           <label 
@@ -36,6 +35,6 @@ const FormField = ( {lableName, type, name, placeholder, value, handleChange, is
   )
 // 17 - When the surprise is inputed using formfield, it will create a button and call the handleSurpriseMe which outputs a random text which will be disaplyed
 // 18 - For the input tag, we have defined multiple parameter which needs to be updated when formfield is created
-}
+
 
 export default FormField

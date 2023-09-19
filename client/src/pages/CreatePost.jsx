@@ -18,6 +18,16 @@ const [form, setForm] = useState({
 const [generatingImg, setGeneratingImg] = useState(false);
 const [loading, setLoading] = useState(false);
 
+
+const handleChange = (e) => {
+  setForm({ ...form, [e.target.name]: e.target.value});
+}
+
+const handleSurpriseMe = () => {
+const randomPrompt = getRandomPrompt(form.prompt);
+setForm({...form, prompt: randomPrompt})
+}
+
 const generateImage = async () =>{
   if(form.prompt) {
     try{
@@ -51,15 +61,6 @@ const handleSubmit = () => {
 }
 
 
-const handleChange = () => {
-  setForm({ ...form, [e.target.name]: e.target.value})
-}
-
-const handleSurpriseMe = () => {
-const randomPrompt = getRandomPrompt(form.prompt);
-setForm({...form, prompt: randomPrompt})
-}
-
 
   return (
 // 13 - We created a section
@@ -74,6 +75,7 @@ setForm({...form, prompt: randomPrompt})
         <p classname="mt-2 text-[#666e75] text-[16px] max-w[500px]">
           Create imaginative and visually stunning images through Mid-Journey AI and share them with the community
         </p>
+        </div>
         <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
         <div className='flex flex-col gap-5'>
         {/* 19 - We create a formfield for the first input field and assign the neccessary inputs to the parameters*/}
@@ -89,7 +91,7 @@ setForm({...form, prompt: randomPrompt})
         <FormField 
         lableName = "Prompt"
         type = "text"
-        name = "name"
+        name = "prompt"
         placeholder = "A man wanders through the rainy streets of Tokyo, with bright neon signs, 50mm"
         value = {form.prompt} 
         handleChange = {handleChange}
@@ -148,7 +150,6 @@ setForm({...form, prompt: randomPrompt})
         </div>
 
         </form>
-      </div>
     </section>
   )
 }
