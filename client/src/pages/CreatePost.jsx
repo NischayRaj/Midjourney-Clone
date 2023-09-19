@@ -33,7 +33,7 @@ const generateImage = async () =>{
     
     const data = await response.json();
 
-    setForm({ ...form, photo:`data:image/jpeg.base64,${data.photo.data[0].b64_json}`})
+    setForm({ ...form, photo:`data:image/jpeg;base64,${data.photo}`})
     }
     catch(error){
       alert(error);
